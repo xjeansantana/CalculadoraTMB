@@ -117,8 +117,8 @@ input[type=number] {
   cursor: pointer;
 }
 .sec-main__content__result {
-  background-color: #fe6761;
-  box-shadow: 1px 1px 10px #fe6761;
+  background-color: #3a5721;
+  box-shadow: 1px 1px 10px #3a5721;
   margin: 24px 0 0;
   padding: 20px;
   display: none;

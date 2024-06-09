@@ -11,37 +11,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const peso = parseFloat(document.getElementById('peso').value);
         const proteina = parseFloat(document.getElementById('proteina').value);
         const carboidrato = parseFloat(document.getElementById('carboidrato').value);
-        const lipidio = parseFloat(document.getElementById('lipidio').value);
+        const lipidioInput = document.getElementById('lipidio');
+        let lipidio = parseFloat(lipidioInput.value);
 
         if (isNaN(tmb) || isNaN(peso) || isNaN(proteina) || isNaN(carboidrato)) {
             result.innerHTML = '<p>Por favor, insira valores válidos para TMB, peso, proteína e carboidrato.</p>';
             return;
         }
 
-
         let porcentagemTotal = 0;
-        let restaPorcentagem = 0;
 
-        const calcProteina = (((proteina * peso)*4) / tmb) * 100;
-        porcentagemTotal = (porcentagemTotal+calcProteina);
-        let proteinaFinal = (calcProteina/100)*tmb;
-        restaPorcentagem = (100-porcentagemTotal)
+        const calcProteina = (((proteina * peso) * 4) / tmb) * 100;
+        porcentagemTotal += calcProteina;
 
+        const calcCarboidrato = (carboidrato);
+        porcentagemTotal += calcCarboidrato;
 
-        const calcCarboidrato = (tmb*(carboidrato/100));
-        porcentagemTotal = (porcentagemTotal+carboidrato);
-        restaPorcentagem = (100-porcentagemTotal);
+        const restaPorcentagem = 100 - porcentagemTotal;
 
-        const calcLipidio = (tmb*(lipidio/100));
-        porcentagemTotal = (porcentagemTotal+lipidio);
-        restaPorcentagem = (100-porcentagemTotal);
+        if (carboidrato !== 0 && !isNaN(restaPorcentagem) && restaPorcentagem >= 0) {
+            lipidio = restaPorcentagem;
+            lipidioInput.value = lipidio.toFixed(2);
+        } else {
+            lipidioInput.value = 0;
+        }
 
+        const calcLipidio = (tmb * (lipidio / 100));
+        porcentagemTotal += lipidio;
 
-
-        result.innerHTML += `<p><b>Proteína:</b> ${calcProteina.toFixed(1)}%. | ${proteinaFinal.toFixed(1)}kCal. </p>`;
-        result.innerHTML += `<p><b>Carboidrato:</b> ${carboidrato.toFixed(1)}%. | ${calcCarboidrato.toFixed(1)}kCal.</p>`;
+        result.innerHTML += `<p><b>Proteína:</b> ${calcProteina.toFixed(1)}%. | ${((calcProteina / 100) * tmb).toFixed(1)}kCal. </p>`;
+        result.innerHTML += `<p><b>Carboidrato:</b> ${calcCarboidrato.toFixed(1)}%. | ${(tmb * (calcCarboidrato / 100)).toFixed(1)}kCal.</p>`;
         result.innerHTML += `<p><b>Lipídio:</b> ${lipidio.toFixed(1)}%. | ${calcLipidio.toFixed(1)}kCal.</p>`;
-        result.innerHTML += `<p><b>Porcentagem Total:</b> ${porcentagemTotal.toFixed(1)}%. Ainda Restam:</b> ${restaPorcentagem.toFixed(1)}% </p>`;
-
+        
     });
 });

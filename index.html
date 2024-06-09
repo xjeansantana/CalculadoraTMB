@@ -34,10 +34,10 @@
                     <input type="radio" id="genderMasc" name="gender" value="Masculino" checked>
                     <label for="genderMasc">Masculino</label>
     
-                    <input type="radio" id="genderFem" name="gender" value="Feminino">
+                    <input type="radio" id="genderFem" name="gender" value="Feminino" >
                     <label for="genderFem">Feminino</label>
                 </div>
-
+<!--
                 <label class="sec-main__content__form__label">
                     Atividades Físicas <small>(min. 3x/sem)</small>
                 </label>
@@ -50,7 +50,7 @@
                     <label for="atvFisN">Não</label>
                 </div>
 
-                </div>
+                </div>       
 
                 <label class="sec-main__content__form__label">
                     Objetivo
@@ -62,7 +62,9 @@
     
                     <input type="radio" id="objHiper" name="obj" value="Hipertrofia">
                     <label for="objHiper">Hipertrofia</label>
-                </div>
+                </div>  
+                    -->
+            
 
                 
 
@@ -70,19 +72,45 @@
                     Peso <small>(em kg)</small>
                 </label>
 
-                <input type="number" id="peso" placeholder="Ex.: 80" class="sec-main__content__form__input" maxlength="3" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required />
+                <input type="number" id="peso" placeholder="Ex.: 80"  class="sec-main__content__form__input" maxlength="3" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required />
 
                 <label for="altura" class="sec-main__content__form__label">
                     Altura <small>(em cm)</small>
                 </label>
 
-                <input type="number" id="altura" placeholder="Ex.: 170" class="sec-main__content__form__input" maxlength="3" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required />
+                <input type="number" id="altura" placeholder="Ex.: 170"  class="sec-main__content__form__input" maxlength="3" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required />
 
                 <label for="idade" class="sec-main__content__form__label">
                     Idade
                 </label>
 
-                <input type="number" id="idade" placeholder="Ex.: 25" class="sec-main__content__form__input" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required />
+                <input type="number" id="idade" placeholder="Ex.: 25"  class="sec-main__content__form__input" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required />
+
+                <label for="tmb" class="sec-main__content__form__label">
+                    TMB <small>(em kCal)</small>
+                </label>
+
+                <input type="number" id="tmb" placeholder="Ex.: 1850" class="sec-main__content__form__input" maxlength="4" step="0.01" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"  />
+
+
+                <label for="proteina" class="sec-main__content__form__label">
+                    Proteína <small>(em g)</small>
+                </label>
+                
+                <input type="number" id="proteina" placeholder="Ex.: 1.1" value="0" class="sec-main__content__form__input" maxlength="4" step="0.01" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
+                
+                <label for="carboidrato" class="sec-main__content__form__label">
+                    Carboidrato<small>(em %)</small>
+                </label>
+
+                <input type="number" id="carboidrato" value="0" placeholder="Ex.: 1.2" class="sec-main__content__form__input" maxlength="4" step="0.01" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"  />
+
+                <label for="lipidio" class="sec-main__content__form__label">
+                    Lipídio<small>(em %)</small>
+                </label>
+
+                <input type="number" id="lipidio" value="0" placeholder="Ex.: 1.2" class="sec-main__content__form__input" maxlength="4" step="0.01" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"  />
+
 
                 <button type="submit" class="sec-main__content__form__cta">
                     Calcular
